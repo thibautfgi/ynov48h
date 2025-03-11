@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import ast
 
 # Chargement du fichier CSV
-df = pd.read_csv('tweets_v3.csv')
+df = pd.read_csv('/../csv/tweets_v3.csv')
 
 # Sélection des 30 premières lignes
 df_30 = df.head(30)
