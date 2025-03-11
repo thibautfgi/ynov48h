@@ -9,7 +9,7 @@ client = Mistral(api_key="9T91Y7oBgurTbatkohTNjbvbpPfFla7R")
 
 try:
     # Chargement du fichier CSV
-    df = pd.read_csv('../csv/tweets_v2.csv')
+    df = pd.read_csv('tweets_v2.csv')
     # Afficher les colonnes du DataFrame pour vérifier
     print("Colonnes du DataFrame :", df.columns)
 except FileNotFoundError:
@@ -23,10 +23,10 @@ df["mot_clef"] = None
 df["categorie"] = None
 
 # Parcours de chaque ligne du DataFrame
-for i in range(40):#index, row in df.iterrows():
+for index, row in df.iterrows():
     try:
         # Utiliser la colonne 'content' pour le texte à analyser
-        content = df.at[i, 'content']
+        content = df.at[index, 'content']
         content = "Commentaire : " + content
 
         # Appel de l'API pour obtenir une réponse
@@ -42,15 +42,15 @@ for i in range(40):#index, row in df.iterrows():
         response_text = response.choices[0].message.content.strip()
 
         # Affichage de la réponse
-        print(f"Réponse pour la ligne {i}: {response_text}")
-        df.at[i, "satisfaction"] = json.loads(response_text)["satisfaction"]
-        df.at[i, "sentiment"] = json.loads(response_text)["sentiment"]
-        df.at[i, "urgence"] = json.loads(response_text)["urgence"]
-        df.at[i, "mot_clef"] = json.loads(response_text)["mots clefs"]
-        df.at[i, "categorie"] = json.loads(response_text)["catégorie"]
+        print(f"Réponse pour la ligne {index}: {response_text}")
+        df.at[index, "satisfaction"] = json.loads(response_text)["satisfaction"]
+        df.at[index, "sentiment"] = json.loads(response_text)["sentiment"]
+        df.at[index, "urgence"] = json.loads(response_text)["urgence"]
+        df.at[index, "mot_clef"] = json.loads(response_text)["mots clefs"]
+        df.at[index, "categorie"] = json.loads(response_text)["catégorie"]
         time.sleep(3.5)
     except Exception as e:
-        print(f"Erreur lors du traitement de la ligne {i}: {e}")
+        print(f"Erreur lors du traitement de la ligne {index}: {e}")
 
-df.to_csv("../csv/tweets_v3.csv", index=False, encoding="utf-8")
+df.to_csv("tweets_v3.csv", index=False, encoding="utf-8")
 print("Fichier créer")
