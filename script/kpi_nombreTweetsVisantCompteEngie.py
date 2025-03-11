@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 # Charger le fichier CSV (remplacer par le bon chemin de fichier)
-fichier_entree = "/../csv/tweets_v2.csv"
+fichier_entree = "../csv/tweets_v2.csv"
 df = pd.read_csv(fichier_entree)
 
 # Liste des comptes ENGIE à surveiller
@@ -33,7 +33,7 @@ kpi_mentions_table = pd.DataFrame(kpi_mentions).reset_index()
 kpi_mentions_table.columns = ['Compte', 'Nombre de Mentions']
 
 # Sauvegarder le tableau dans un fichier CSV
-kpi_mentions_table.to_csv("/../csv/kpi_mentions_engie.csv", index=False, encoding="utf-8")
+kpi_mentions_table.to_csv("../csv/kpi_mentions_engie.csv", index=False, encoding="utf-8")
 
 print("Le tableau des mentions a été créé et sauvegardé dans 'kpi_mentions_engie.csv'.")
 

@@ -4,7 +4,7 @@ import streamlit as st
 from datetime import datetime
 
 # Charger les données depuis le fichier CSV
-df = pd.read_csv("/../csv/tweets_v2.csv")
+df = pd.read_csv("../csv/tweets_v2.csv")
 
 # Convertir la colonne 'date_time' en datetime
 df['date_time'] = pd.to_datetime(df['date_time'], format='%Y-%m-%d %H:%M:%S')

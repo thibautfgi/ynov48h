@@ -93,4 +93,4 @@ def nuage(fichier_csv, size=(800, 600), max_words=100):
     plt.show()
 
 # Exemple d'utilisation
-nuage("/../csv/tweets_v2.csv", max_words=100)
+nuage("../csv/tweets_v2.csv", max_words=100)
