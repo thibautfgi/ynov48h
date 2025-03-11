@@ -9,7 +9,7 @@ client = Mistral(api_key="9T91Y7oBgurTbatkohTNjbvbpPfFla7R")
 
 try:
     # Chargement du fichier CSV
-    df = pd.read_csv('tweets_v2.csv')
+    df = pd.read_csv('../csv/tweets_v2.csv')
     # Afficher les colonnes du DataFrame pour vérifier
     print("Colonnes du DataFrame :", df.columns)
 except FileNotFoundError:
@@ -52,5 +52,5 @@ for index, row in df.iterrows():
     except Exception as e:
         print(f"Erreur lors du traitement de la ligne {index}: {e}")
 
-df.to_csv("tweets_v3.csv", index=False, encoding="utf-8")
+df.to_csv("../csv/tweets_v3.csv", index=False, encoding="utf-8")
 print("Fichier créer")
